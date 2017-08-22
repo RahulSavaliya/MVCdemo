@@ -1,0 +1,76 @@
+﻿@model eShopper.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserName)
+        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.UserName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword)
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+    </div>
+
+    <div class="row col-md-6 col-sm-6 col-lg-6">
+        <h3> Billing Address</h3>
+        <div class="form-group">
+            @Html.LabelFor(m => m.BillingAddressStreet)
+            @Html.TextBoxFor(m => m.BillingAddressStreet, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.BillingAddressStreet)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.BillingAddressCity)
+            @Html.TextBoxFor(m => m.BillingAddressCity, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.BillingAddressCity)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.BillingAddressCountry)
+            @Html.DropDownListFor(m => m.BillingAddressCountry, (List<SelectListItem>)ViewBag.ListItems, "-- Select Country --", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.BillingAddressCountry)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.BillingAddressState)
+            @Html.DropDownListFor(m => m.BillingAddressState, (List<SelectListItem>)ViewBag.ListItems, "-- Select State --", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.BillingAddressState)
+        </div>
+    </div>
+
+    <div class="row col-md-6 col-sm-6 col-lg-6">
+        <h3>Shipping Address </h3>
+        @Html.CheckBoxFor(m => m.SameAsBilling) 
+        @Html.LabelFor(m => m.SameAsBilling)
+        <div class="form-group">
+            @Html.LabelFor(m => m.ShippingAddressStreet)
+            @Html.TextBoxFor(m => m.ShippingAddressStreet, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ShippingAddressStreet)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ShippingAddressCity)
+            @Html.TextBoxFor(m => m.ShippingAddressCity, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ShippingAddressCity)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ShippingAddressCountry)
+            @Html.DropDownListFor(m => m.ShippingAddressCountry, (List<SelectListItem>)ViewBag.ListItems, "-- Select Country --", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ShippingAddressCountry)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ShippingAddressState)
+            @Html.DropDownListFor(m => m.ShippingAddressState, (List<SelectListItem>)ViewBag.ListItems, "-- Select State --", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ShippingAddressState)
+        </div>
+    </div>
+    <button type="submit" class="btn btn-default">Register</button>
+}
